@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <math.h>
+#define M 50
+#define N 50
+//Bai_1: TINH TRUNG BINH CAC SO CHIA HET CHO 3
+void nhapmang2c(int a[5][5]);
+void xuatmang2c(int a[5][5]);
+void nhapmang2chieu(int a[M][N], int m, int n);
+void xuatmang2chieu(int a[M][N], int m, int n);
+void nhapmang2chieu(int a[M][N], int m, int n){
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("Nhap phan tu a[%d][%d]: ",i,j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+}
+void xuatmang2chieu(int a[M][N], int m, int n){
+     printf("Xuat mang a[%d][%d]: \n",m,n);
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void xuatchiahetcho3(int a[M][N], int m, int n){
+    int found = 0;
+    printf("Xuat phan tu chia het cho 3: ");
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (a[i][j] % 3 == 0);
+        }
+    }
+}
+void tbtongchiahetcho3(int a[M][N], int m, int n){
+    int sum = 0, count = 0;
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (a[i][j] % 3 == 0)
+            {
+                sum += a[i][j];
+                count++;
+
+            }
+            
+        }
+        
+    }
+    if (count == 0 )
+    {
+        printf("Khong co phan tu nao chia het cho 3.\n");
+    }else {
+        float tbc = (float)sum/count;
+        printf("\nTrung binh tong phan tu chia het cho ba: %.2f\n", tbc);
+    }
+}
+//Bai_2: TIM MIN MAX TRONG MANG
+void timMinmax(int a[M][N], int m, int n){
+    int min = a[0][0];
+    int max = a[0][0];
+    for ( int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if(a[i][j]< min)
+            min = a[i][j];
+            if (a[i][j]>max)
+            max = a[i][j];
+        }
+    }
+    printf("Gia tri nho nhat trong mang: %d\n",min);
+    printf("Gia tri lon nhat trong mang: %d\n",max);
+}
+//Bai_3: SAP XEP MANG THEO THU TU GIAM DAN
+void thuTugiamdan(int a[M][N], int m, int n){
+    int total = m * n; 
+    int temp[2500];
+//Dồn mảng 2 chiều vào mảng 1 chiều
+    int k = 0;
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            temp[k++] = a[i][j];
+        }
+    }
+//Sap xep mang 1 chieu giam dan
+for (int i = 0; i < total; i++)
+{
+    for ( int j = i+1; j < total; j++)
+    {
+        if (temp[i]<temp[j]) //giam dan
+        {
+            int t = temp[i];
+            temp[i] = temp[j];
+            temp[j] = t;
+        }
+    }
+    
+}
+//Dua nguoc vao mang 2 chieu 
+k=0;
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        a[i][j] = temp[k++];
+    }
+}
+}
+int main(){
+    int a[M][N], m, n;
+    printf("Nhap m va n: ");
+    scanf("%d %d", &m, &n);
+    nhapmang2chieu(a,m,n);
+    xuatmang2chieu(a,m,n);
+
+    xuatchiahetcho3(a,m,n);
+    tbtongchiahetcho3(a,m,n);
+    
+    timMinmax(a,m,n);
+    thuTugiamdan(a,m,n);
+    printf("Thu tu giam dan cua mang: \n");
+     xuatmang2chieu(a,m,n);
+    return 0;
+}   

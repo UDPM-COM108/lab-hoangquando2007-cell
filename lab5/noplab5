@@ -1,0 +1,67 @@
+/*
+#include <stdio.h>
+#include <math.h>
+
+//XÂY DỰNG CHƯƠNG TRÌNH TÌM GIÁ TRỊ LỚN NHẤT, NHỎ NHẤT TRONG 3 SỐ
+int min3(int a, int b, int c) {
+    int m = (a < b) ? a : b;
+    return (m < c) ? m : c;
+}
+
+int max3(int a, int b, int c){
+    int m = (a > b) ? a : b;
+    return (m > c) ? m : c;
+}
+int abs(int x) {
+    return (x<0) ? -x:x;
+}
+int main(){
+    int a,b,c;
+    printf("\nNhập giá trị a: ");
+    scanf("%d",&a);
+    printf("\nNhập giá trị b: ");
+    scanf("%d",&b);
+    printf("\nNhập giá trị c: ");
+    scanf("%d",&c);
+    int min = min3(a,b,c);
+    int max = max3(a,b,c);
+    printf("Giá trị nhỏ nhất: %d\n",min);
+    printf("Giá trị lớn nhất: %d\n",max);
+    printf("Giá trị tuyệt đối của a: %d\n", abs(a));
+    printf("Giá trị tuyệt đối của b: %d\n", abs(b));
+    printf("Giá trị tuyệt đối của c: %d\n", abs(c));
+    return 0;
+}*/
+/*
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int year;
+    printf("Nhập số năm: ");
+    scanf("%d", &year);
+    if (year % 400 ==0 && year % 4 ==0)
+    {
+        printf("Năm nhuận!", year);
+    }else 
+    printf("Không phải năm nhuận!", year);
+    return 0;
+}*/
+#include <stdio.h>
+
+int main(){
+    int n;
+    printf("Nhập số từ 1 đến 1000: ");
+    scanf("%d", &n);
+    if (n<1 || n>1000)
+    {
+        printf("Số không nằm trong khoảng 1-1000: \n");
+    }
+    if (n%5 == 0 && n%9 ==0)
+    {
+        printf("%d chia hết cho 5 và 9\n", n);
+    }else{
+        printf("%d không chia hết cho 5 và 9", n);
+    }
+    return 0;
+}
