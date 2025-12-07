@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int choice;
+    int n;
+    do
+    {
+        printf("============MENU============\n");
+        printf("1.Kiem tra so nguyen\n");
+        printf("2.Tim uoc chung va boi so chung cua 2 so\n");
+        printf("3.Chuong trinh tinh tien cho quan Karaoke\n");
+        printf("4.Tinh tien dien\n");
+        printf("5.Chuc nang doi tien\n");
+        printf("6.Chuc nang tinh lai suat vay ngan hang vay tra gop\n");
+        printf("7.Chuong trinh vay tien mua xe\n");
+        printf("8.Sap xep thong tin sinh vien\n");
+        printf("9.GAME FPOLY-LOTT\n");
+        printf("10.Chuong trinh tinh toan phan so\n");
+        printf("Moi ban nhap chuc nang: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            printf("Nhap so: ");
+            scanf("%d", &n);
+            if (n < 0)
+            {
+                printf("%d la so nguyen am\n", n);
+            }else if (n == 0)
+            {
+                printf("%d khong phai la so nguyen am vung khong phai la so nguyen duong\n", n);
+            }else if(n > 0)
+            {
+                printf("%d la so nguyen duong\n", n);
+            }
+             if (n >= 0) {
+                int can = sqrt(n);
+                if (can * can == n) {
+                    printf("%d la so chinh phuong\n", n);
+        } else {
+            printf("%d khong phai la so chinh phuong\n", n);
+        }
+    } else {
+        printf("%d khong phai la so chinh phuong (vi la so am)\n", n);
+    } 
+            break;
+        case 2:{
+        int x, y;
+        printf("Nhap so thu nhat: ");
+        scanf("%d", &x);
+        printf("Nhap so thu hai: ");
+        scanf("%d", &y);
+        int a=x, b=y;
+        while (b != 0)
+        {
+            int r = a % b;
+            a = b;
+            b = r;
+        }
+        int bcln = a;
+        int bcnn = (x*y)/ bcln;
+        printf("UCLN cua %d va %d la: %d\n", x, y, bcln);
+        printf("BCNN cua %d va %d la: %d\n", x, y, bcnn);
+    }
+        break;
+        case 0: 
+        printf("Thoat chuong trinh...\n");
+        break;
+        default:
+        printf("Lua chon khong hop le\n");
+}
+    }while (choice != 0);    
+    return 0;
+}
